@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Portal</title>
+  <script>
+    function enableEditing() {
+      document.querySelectorAll('.admin-row').forEach(row => {
+        const name = row.dataset.name;
+        const countCell = row.querySelector('.count-cell');
+        const count = countCell.innerText;
+        countCell.innerHTML = `<input type='number' name='nodes[${name}]' value='${count}'/>`;
+      });
+      document.getElementById('saveBtn').style.display = 'inline';
+
+          document.getElementById('saveBtn').style.display = 'inline';
+    document.querySelector('button[onclick="enableEditing()"]').disabled = true;
+    }
+  </script>
+</head>
+<body>
+<h2>Portal</h2>
+<a href="/logout">Logout</a>
+
+<form method="POST" action="/update">
+<table border="1">
+<tr><th>Cluster</th><th>Count</th></tr>
+{{range .Clusters}}
+<tr class="{{if eq $.Role "admin"}}admin-row{{end}}" data-name="{{.Name}}">
+  <td>{{.Name}}<input type="hidden" name="names" value="{{.Name}}"></td>
+  <td class="count-cell">{{.Nodes}}</td>
+</tr>
+{{end}}
+</table>
+{{if eq .Role "admin"}}
+<br>
+<button type="button" onclick="enableEditing()">Edit Counts</button>
+<button type="submit" id="saveBtn" style="display:none">Save Changes</button>
+{{end}}
+</form>
+</body>
+</html>
