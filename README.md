@@ -12,21 +12,21 @@ A simple web application built in Go that allows users to view and manage cluste
 
 ## Project Structure
 
-cluster-app/
-├── cmd/ # Application entry point
-│ └── main.go
-├── db/ # Database connection and schema
-│ ├── db.go
-│ └── schema.sql
-├── handlers/ # HTTP handlers (Login, Logout, Portal, Update)
-│ └── handlers.go
-├── middleware/ # Session and role-based middleware
-│ └── session.go
-├── templates/ # HTML templates
-│ ├── login.html
-│ └── update.html
-├── config.json # Database configuration file (not included by default)
-└── README.md
+ ``` cluster-app/ 
+     ├── cmd/ # Application entry point
+     │    └── main.go
+     ├── db/ # Database connection and schema
+     │    ├── db.go
+     │    └── schema.sql
+     ├── handlers/ # HTTP handlers (Login, Logout, Portal, Update)
+     │    └── handlers.go
+     ├── middleware/ # Session and role-based middleware
+     │    └── session.go
+     ├── templates/ # HTML templates
+     │    ├── login.html
+     │    └── update.html
+     ├── config.json # Database configuration file (not included by default)
+     └── README.md ```
 
 
 ## Getting Started
